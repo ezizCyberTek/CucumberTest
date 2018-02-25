@@ -2,6 +2,7 @@ package runnerPackage;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
 import cucumber.api.CucumberOptions;
@@ -19,5 +20,9 @@ public class TestRunner5 extends AbstractTestNGCucumberTests{
 		//use wedriver manager to specify which driver 
 		driver=new ChromeDriver();
 		System.out.println();
+	}
+	@AfterTest
+	public void tearDown(){
+		driver.quit();
 	}
 }
