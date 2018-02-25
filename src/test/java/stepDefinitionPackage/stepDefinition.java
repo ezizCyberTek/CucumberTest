@@ -41,4 +41,17 @@ public class stepDefinition extends TestRunner5 {
 		Assert.assertTrue(driver.getTitle().contains("Porshe"));
 	   
 	}
+	
+	@When("^I enter a (.*) to search$")
+	public void i_enter_a_to_search(String keyword) {
+	    // Write code here that turns the phrase above into concrete actions
+		search_box = driver.findElement(By.name("q"));
+		search_box.sendKeys(keyword);
+	}
+
+	@Then("^I should be abble to see the title contains the (.*)$")
+	public void i_should_be_abble_to_see_the_title_contains_the(String keyword)  {
+	    // Write code here that turns the phrase above into concrete actions
+		Assert.assertTrue(driver.getTitle().contains(keyword));
+	}
 }
